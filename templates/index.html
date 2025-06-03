@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OCR Tool</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Upload PDF or Image for OCR</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <button type="submit">Extract Text</button>
+        </form>
+        {% if text %}
+            <h3>Extracted Text:</h3>
+            <textarea rows="15" cols="80">{{ text }}</textarea>
+        {% endif %}
+    </div>
+</body>
+</html>
