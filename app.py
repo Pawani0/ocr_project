@@ -8,11 +8,6 @@ import cv2
 import io
 import numpy as np
 
-def image_to_text(image):
-    gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    text = pytesseract.image_to_string(gray_image)
-    return text
-
 def convert_pdf_to_images(path):
     doc = fitz.open(path)
     images = []
@@ -38,8 +33,6 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
